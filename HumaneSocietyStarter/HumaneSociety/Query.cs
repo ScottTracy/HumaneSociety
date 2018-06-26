@@ -91,6 +91,7 @@ namespace HumaneSociety
         {
 
         }
+
         public static List<Client> RetrieveClients()
         {
             List<Client> clients = new List<Client>();
