@@ -14,17 +14,22 @@ namespace HumaneSociety
         }
         public static List<ClientAnimalJunction> GetPendingAdoptions()
         {
-            List<ClientAnimalJunction> data = new List<ClientAnimalJunction>();
-            return data;
+
+         
+
+
+            List<ClientAnimalJunction> adoptions = new List<ClientAnimalJunction>();
+            return adoptions;
 
         }
         public static void UpdateAdoption(bool genericBoolean, ClientAnimalJunction clientAnimalJunction)
         {
 
         }
-        public static void GetShots(Animal animal)
+        public static List<AnimalShotJunction> GetShots(Animal animal)
         {
-
+            List<AnimalShotJunction> shots = new List<AnimalShotJunction>();
+            return shots; 
         }
         public static void UpdateShot(String str, Animal animal)
         {
@@ -81,19 +86,25 @@ namespace HumaneSociety
         {
 
         }
-        public static void GetAnimalByID(int iD)
+        public static Animal GetAnimalByID(int iD)
         {
-
+            Animal animal = new Animal();
+            return animal;
         }
         public static void Adopt(Animal animal, Client client)
         {
 
         }
-        public static void RetrieveClients()
+        public static List<Client> RetrieveClients()
         {
-
+            List<Client> clients = new List<Client>();
+            return clients;
         }
-        public static USState  GetStates()
+
+        
+
+        public static USState GetStates()
+
         {
             USState state = new USState();
             return state;
