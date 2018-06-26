@@ -12,9 +12,10 @@ namespace HumaneSociety
         {
 
         }
-        public static void GetPendingAdoptions()
+        public static List<ClientAnimalJunction> GetPendingAdoptions()
         {
-
+            List<ClientAnimalJunction> data = new List<ClientAnimalJunction>();
+            return data;
 
         }
         public static void UpdateAdoption(bool genericBoolean, ClientAnimalJunction clientAnimalJunction)
@@ -92,9 +93,10 @@ namespace HumaneSociety
         {
 
         }
-        public static void GetStates()
+        public static USState  GetStates()
         {
-
+            USState state = new USState();
+            return state;
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
