@@ -12,18 +12,18 @@ namespace HumaneSociety
         {
 
         }
-        public static void GetPendingAdoptions()
+        public static List<ClientAnimalJunction> GetPendingAdoptions()
         {
-
-
+            List<ClientAnimalJunction> adoptions = new List<ClientAnimalJunction>();
+            return adoptions;
         }
         public static void UpdateAdoption(bool genericBoolean, ClientAnimalJunction clientAnimalJunction)
         {
 
         }
-        public static List<string> GetShots(Animal animal)
+        public static List<AnimalShotJunction> GetShots(Animal animal)
         {
-            List<string> shots = new List<string>();
+            List<AnimalShotJunction> shots = new List<AnimalShotJunction>();
             return shots; 
         }
         public static void UpdateShot(String str, Animal animal)
