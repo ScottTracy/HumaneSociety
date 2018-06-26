@@ -77,9 +77,10 @@ namespace HumaneSociety
             Client client = new Client();
             return client;
         }
-        public static void GetUserAdoptionStatus(Client client)
+        public static List<ClientAnimalJunction> GetUserAdoptionStatus(Client client)
         {
-
+            List<ClientAnimalJunction> adoptionStatus = new List<ClientAnimalJunction>();
+            return adoptionStatus;
         }
         public static Animal GetAnimalByID(int iD)
         {
@@ -95,10 +96,10 @@ namespace HumaneSociety
             List<Client> clients = new List<Client>();
             return clients;
         }
-        public static USState GetStates()
+        public static Dictionary<string, string> GetStates()
         {
-            USState state = new USState();
-            return state;
+            Dictionary<string, string> states = new Dictionary<string, string>();
+            return states;
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
