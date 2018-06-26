@@ -178,7 +178,6 @@ namespace HumaneSociety
                     Query.UpdateShot("booster", animal);
                 }
             }
-            
         }
 
         private void UpdateAnimal(Animal animal)
@@ -218,7 +217,6 @@ namespace HumaneSociety
 
         private void RemoveAnimal()
         {
-
             var animals = SearchForAnimal().ToList();
             if (animals.Count > 1)
             {
@@ -240,6 +238,7 @@ namespace HumaneSociety
                 Query.RemoveAnimal(animal);
             }
         }
+
         private void AddAnimal()
         {
             Console.Clear();
@@ -255,6 +254,7 @@ namespace HumaneSociety
             animal.location = Query.GetLocation();
             Query.AddAnimal(animal);
         }
+
         protected override void LogInPreExistingUser()
         {
             List<string> options = new List<string>() { "Please log in", "Enter your username (CaSe SeNsItIvE)" };

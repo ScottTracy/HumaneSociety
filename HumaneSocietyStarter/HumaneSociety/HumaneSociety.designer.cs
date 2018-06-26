@@ -1816,7 +1816,6 @@ namespace HumaneSociety
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DietPlans")]
 	public partial class DietPlan : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _ID;

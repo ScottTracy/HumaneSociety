@@ -91,16 +91,17 @@ namespace HumaneSociety
         {
 
         }
-
         public static List<Client> RetrieveClients()
         {
-            List<Client> clients = new List<Client>();
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var clients = db.Clients.ToList();
             return clients;
         }
-        public static Dictionary<string,string>  GetStates()
+        public static IQueryable<USState> GetStates()
         {
-            Dictionary<string, string> territory = new Dictionary<string, string>();
-            return territory;
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var states = db.USStates;           
+            return states;
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
@@ -112,11 +113,14 @@ namespace HumaneSociety
         }
         public static void UpdateUsername(Client client)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            db.Clients.userName = client.userName;
         }
         public static void UpdateEmail(Client client)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var newEmail = db.Clients.email;
+            client.email = newEmail;
         }
         public static void UpdateAddress(Client client)
         {

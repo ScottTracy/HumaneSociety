@@ -9,10 +9,6 @@ namespace HumaneSociety
 {
     class Admin : User
     {
-
-
-
-
         public override void LogIn()
         {
             UserInterface.DisplayUserOptions("What is your password?");
@@ -35,6 +31,7 @@ namespace HumaneSociety
             string input = UserInterface.GetUserInput();
             RunInput(input);
         }
+
         protected void RunInput(string input)
         {
             if(input == "1" || input.ToLower() == "create")
@@ -138,6 +135,5 @@ namespace HumaneSociety
                 return;
             }
         }
-
     }
 }
