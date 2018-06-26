@@ -103,11 +103,10 @@ namespace HumaneSociety
 
         
 
-        public static USState GetStates()
-
+        public static Dictionary<string,string>  GetStates()
         {
-            USState state = new USState();
-            return state;
+            Dictionary<string, string> territory = new Dictionary<string, string>();
+            return territory;
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
