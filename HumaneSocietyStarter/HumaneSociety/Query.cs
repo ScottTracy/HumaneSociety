@@ -21,9 +21,10 @@ namespace HumaneSociety
         {
 
         }
-        public static void GetShots(Animal animal)
+        public static List<string> GetShots(Animal animal)
         {
-
+            List<string> shots = new List<string>();
+            return shots; 
         }
         public static void UpdateShot(String str, Animal animal)
         {
@@ -80,21 +81,24 @@ namespace HumaneSociety
         {
 
         }
-        public static void GetAnimalByID(int iD)
+        public static Animal GetAnimalByID(int iD)
         {
-
+            Animal animal = new Animal();
+            return animal;
         }
         public static void Adopt(Animal animal, Client client)
         {
 
         }
-        public static void RetrieveClients()
+        public static List<Client> RetrieveClients()
         {
-
+            List<Client> clients = new List<Client>();
+            return clients;
         }
-        public static void GetStates()
+        public static USState GetStates()
         {
-
+            USState state = new USState();
+            return state;
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
