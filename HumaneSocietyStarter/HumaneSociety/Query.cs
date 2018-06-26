@@ -97,10 +97,11 @@ namespace HumaneSociety
             List<Client> clients = new List<Client>();
             return clients;
         }
-        public static Dictionary<string,string>  GetStates()
+        public static List<USState>  GetStates()
         {
-            Dictionary<string, string> territory = new Dictionary<string, string>();
-            return territory;
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+           var t =  db.USStates.ToList();
+            return t;
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
