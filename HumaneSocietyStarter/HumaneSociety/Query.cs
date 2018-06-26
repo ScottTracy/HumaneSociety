@@ -15,6 +15,7 @@ namespace HumaneSociety
         public static void GetPendingAdoptions()
         {
 
+
         }
         public static void UpdateAdoption(bool genericBoolean, ClientAnimalJunction clientAnimalJunction)
         {
@@ -52,13 +53,15 @@ namespace HumaneSociety
         {
             return 0;
         }
-        public static void EmployeeLogin(string userName, string password)
+        public static Employee EmployeeLogin(string userName, string password)
         {
-
+            Employee employee = new Employee();
+            return employee;
         }
-        public static void RetrieveEmployeeUser(string email, int employeeNumber)
+        public static Employee RetrieveEmployeeUser(string email, int employeeNumber)
         {
-
+            Employee employee = new Employee();
+            return employee;
         }
         public static void AddUsernameAndPassword(Employee employee)
         {
