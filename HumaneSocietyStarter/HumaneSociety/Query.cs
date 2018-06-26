@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace HumaneSociety
 {
     public static class Query
+
     {
         public static void RunEmployeeQueries(Employee employee, string str)
         {
@@ -94,7 +95,9 @@ namespace HumaneSociety
 
         public static List<Client> RetrieveClients()
         {
-            List<Client> clients = new List<Client>();
+            
+            HumaneSocietyDataContext context = new HumaneSocietyDataContext();
+             var clients = context.Clients.ToList(); 
             return clients;
         }
         public static List<USState>  GetStates()
@@ -105,6 +108,22 @@ namespace HumaneSociety
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            UserAddress address = new UserAddress(); 
+            Client client = new Client();
+            client.firstName = firstName;
+            client.lastName = lastName;
+            client.userName = username;
+            client.pass = password;
+            client.email = email;
+            address.addessLine1 = streetAddress;
+            address.addressLine2 = null;
+            address.zipcode = zipCode;
+            address.ID = state;
+            db.Clients.InsertOnSubmit(client);
+            db.UserAddresses.InsertOnSubmit(address);
+            db.SubmitChanges();
+            
 
         }
         public static void updateClient(Client client)
@@ -125,11 +144,11 @@ namespace HumaneSociety
         }
         public static void UpdateFirstName(Client client)
         {
-
+  
         }
         public static void UpdateLastName(Client client)
         {
-
+            
         }
     }
 }

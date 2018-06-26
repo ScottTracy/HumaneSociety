@@ -26,3 +26,6 @@ C:\projects\HumaneSocietyStarter\HumaneSocietyStarter\HumaneSociety\obj\Debug\Hu
 C:\projects\HumaneSocietyStarter\HumaneSocietyStarter\HumaneSociety\obj\Debug\HumaneSociety.csproj.CoreCompileInputs.cache
 C:\projects\HumaneSocietyStarter\HumaneSocietyStarter\HumaneSociety\obj\Debug\HumaneSociety.exe
 C:\projects\HumaneSocietyStarter\HumaneSocietyStarter\HumaneSociety\obj\Debug\HumaneSociety.pdb
+C:\projects\HumaneSocietyStarter\HumaneSocietyStarter\HumaneSociety\bin\Debug\HumaneSociety.exe.config
+C:\projects\HumaneSocietyStarter\HumaneSocietyStarter\HumaneSociety\bin\Debug\HumaneSociety.exe
+C:\projects\HumaneSocietyStarter\HumaneSocietyStarter\HumaneSociety\bin\Debug\HumaneSociety.pdb
