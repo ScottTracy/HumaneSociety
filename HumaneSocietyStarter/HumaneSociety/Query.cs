@@ -16,6 +16,7 @@ namespace HumaneSociety
         {
             List<ClientAnimalJunction> adoptions = new List<ClientAnimalJunction>();
             return adoptions;
+
         }
         public static void UpdateAdoption(bool genericBoolean, ClientAnimalJunction clientAnimalJunction)
         {
@@ -96,10 +97,10 @@ namespace HumaneSociety
             List<Client> clients = new List<Client>();
             return clients;
         }
-        public static Dictionary<string, string> GetStates()
+        public static Dictionary<string, string>  GetStates()
         {
-            Dictionary<string, string> states = new Dictionary<string, string>();
-            return states;
+            Dictionary<string, string> territory = new Dictionary<string, string>();
+            return territory;
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
