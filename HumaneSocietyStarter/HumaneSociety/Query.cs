@@ -37,11 +37,15 @@ namespace HumaneSociety
         }
         public static void RemoveAnimal(Animal animal)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            db.Animals.DeleteOnSubmit(animal);
+            db.SubmitChanges();            
         }
         public static void AddAnimal(Animal animal)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            db.Animals.InsertOnSubmit(animal);
+            db.SubmitChanges();
         }
         public static int GetBreed()
         {
