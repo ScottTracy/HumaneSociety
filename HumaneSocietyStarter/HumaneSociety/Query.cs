@@ -67,15 +67,42 @@ namespace HumaneSociety
         }
         public static int GetBreed()
         {
-            return 0;
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Console.WriteLine("What is the animal's breed?");
+            string _breed = Console.ReadLine();
+            var breedKey = db.Breeds.Where(b => b.breed1.ToLower().Equals(_breed.ToLower()));
+            int _breedKey = 0;
+            foreach (var bK in breedKey)
+            {
+                _breedKey = bK.ID;
+            }
+            return _breedKey;
         }
         public static int GetDiet()
         {
-            return 0;
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Console.WriteLine("What is the animal's diet plan?");
+            string _diet = Console.ReadLine();
+            var diet = db.DietPlans.Where(d => d.food.ToLower().Equals(_diet.ToLower()));
+            int _dietKey = 0;
+            foreach (var dK in diet)
+            {
+                _dietKey = dK.ID;
+            }
+            return _dietKey;
         }
-        public static int GetLocation()
+        public static int? GetLocation()
         {
-            return 0;
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Console.WriteLine("What is the animal's location?");
+            string _location = Console.ReadLine();
+            var location = db.Animals.Where(l => l.location.Equals(_location));
+            int? locationKey = 0;
+            foreach (var lK in location)
+            {
+                locationKey = lK.location;
+            }
+            return locationKey;
         }
         public static Employee EmployeeLogin(string userName, string password)
         {
