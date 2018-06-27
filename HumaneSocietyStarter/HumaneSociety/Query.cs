@@ -16,7 +16,9 @@ namespace HumaneSociety
         public static List<ClientAnimalJunction> GetPendingAdoptions()
         {
             List<ClientAnimalJunction> adoptions = new List<ClientAnimalJunction>();
-            return adoptions;
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var _pendingAdoptions = db.ClientAnimalJunctions.Where(a => a.approvalStatus.ToLower() == "pending adoption").ToList();
+            return _pendingAdoptions;
         }
         public static void UpdateAdoption(bool genericBoolean, ClientAnimalJunction clientAnimalJunction)
         {
@@ -27,7 +29,7 @@ namespace HumaneSociety
             List<AnimalShotJunction> shots = new List<AnimalShotJunction>();
             return shots; 
         }
-        public static void UpdateShot(String str, Animal animal)
+        public static void UpdateShot(String shot, Animal animal)
         {
 
         }
