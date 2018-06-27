@@ -175,7 +175,7 @@ namespace HumaneSociety
             updatedClient.lastName = client.lastName;
             db.Clients.DeleteOnSubmit(client);
             db.Clients.InsertOnSubmit(updatedClient);
-            db.SubmitChanges();
+            db.SubmitChanges(); 
         }
     }
 }
