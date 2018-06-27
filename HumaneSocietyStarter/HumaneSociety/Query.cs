@@ -144,6 +144,7 @@ namespace HumaneSociety
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
+            USState State = new USState();
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             UserAddress address = new UserAddress(); 
             Client client = new Client();
@@ -155,7 +156,8 @@ namespace HumaneSociety
             address.addessLine1 = streetAddress;
             address.addressLine2 = null;
             address.zipcode = zipCode;
-            address.ID = state;
+            State.ID = state;
+            address.USState = State;
             db.Clients.InsertOnSubmit(client);
             db.UserAddresses.InsertOnSubmit(address);
             db.SubmitChanges();
