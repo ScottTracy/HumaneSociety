@@ -162,7 +162,22 @@ namespace HumaneSociety
         }
         public static void updateClient(Client client)
         {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var oldClient = from item in db.Clients
+                            where item.ID == client.ID
+                            select item;
+            if (client.pass != null) { oldClient.First().pass = client.pass; }
+            if (client.homeSize != null) { oldClient.First().homeSize = client.homeSize; }
+            if (client.kids != null) { oldClient.First().kids = client.kids; }
+            if(client.income !=null){oldClient.First().income = client.income; }
+            db.SubmitChanges();
 
+           
+            //var OldClient = db.Clients.Where(c => c.ID.Equals(client.ID).Select(c=>c.pass);
+            
+            
+
+            
         }
         public static void UpdateUsername(Client client)
         {
