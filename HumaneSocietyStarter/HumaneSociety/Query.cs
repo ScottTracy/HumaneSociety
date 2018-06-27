@@ -36,6 +36,11 @@ namespace HumaneSociety
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             List<AnimalShotJunction> shots = new List<AnimalShotJunction>();
+            var animals = db.AnimalShotJunctions.Where(a => a.Animal_ID.Equals(animal.ID));
+            foreach (var a in animals)
+            {
+                shots.Add(a);
+            }
             return shots; 
         }
         public static void UpdateShot(String shot, Animal animal)
