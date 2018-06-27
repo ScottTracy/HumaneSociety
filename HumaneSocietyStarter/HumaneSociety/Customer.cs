@@ -293,7 +293,6 @@ namespace HumaneSociety
                     Query.AddNewClient(firstName, lastName, username, password, email, streetAddress, zipCode, state);
                     Console.Clear();
                     UserInterface.DisplayUserOptions("Profile successfully added");
-
                 }
                 return true;
             }
@@ -321,6 +320,7 @@ namespace HumaneSociety
             }
 
         }
+
         private void RunUpdateInput(int input)
         {
             switch (input)
@@ -453,7 +453,6 @@ namespace HumaneSociety
             UserInterface.DisplayUserOptions("Please enter your street address");
             client.UserAddress1.addessLine1 = UserInterface.GetUserInput();
             Query.UpdateAddress(client);
-
         }
         public void UpdateName()
         {
