@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace HumaneSociety
 {
     public static class Query
+
     {
         public static void RunEmployeeQueries(Employee employee, string str)
         {
@@ -105,7 +106,21 @@ namespace HumaneSociety
         }
         public static void AddNewClient(string firstName, string lastName, string username, string password, string email, string streetAddress, int zipCode, int state)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            UserAddress address = new UserAddress(); 
+            Client client = new Client();
+            client.firstName = firstName;
+            client.lastName = lastName;
+            client.userName = username;
+            client.pass = password;
+            client.email = email;
+            address.addessLine1 = streetAddress;
+            address.addressLine2 = null;
+            address.zipcode = zipCode;
+            address.ID = state;
+            db.Clients.InsertOnSubmit(client);
+            db.UserAddresses.InsertOnSubmit(address);
+            db.SubmitChanges();
         }
         public static void updateClient(Client client)
         {
@@ -114,25 +129,53 @@ namespace HumaneSociety
         public static void UpdateUsername(Client client)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
-            db.Clients.userName = client.userName;
+            Client updatedClient = new Client();
+            updatedClient = client;
+            updatedClient.userName = client.userName;
+            db.Clients.DeleteOnSubmit(client);
+            db.Clients.InsertOnSubmit(updatedClient);
+            db.SubmitChanges();
         }
         public static void UpdateEmail(Client client)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
-            var newEmail = db.Clients.email;
-            client.email = newEmail;
+            Client updatedClient = new Client();
+            updatedClient = client;
+            updatedClient.email = client.email;
+            db.Clients.DeleteOnSubmit(client);
+            db.Clients.InsertOnSubmit(updatedClient);
+            db.SubmitChanges();
         }
         public static void UpdateAddress(Client client)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Client updatedClient = new Client();
+            updatedClient = client;
+            updatedClient.userAddress = client.userAddress;
+            updatedClient.UserAddress1 = client.UserAddress1;
+            db.Clients.DeleteOnSubmit(client);
+            db.Clients.InsertOnSubmit(updatedClient);
+            db.SubmitChanges();
         }
         public static void UpdateFirstName(Client client)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Client updatedClient = new Client();
+            updatedClient = client;
+            updatedClient.firstName = client.firstName;
+            db.Clients.DeleteOnSubmit(client);
+            db.Clients.InsertOnSubmit(updatedClient);
+            db.SubmitChanges();
         }
         public static void UpdateLastName(Client client)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Client updatedClient = new Client();
+            updatedClient = client;
+            updatedClient.lastName = client.lastName;
+            db.Clients.DeleteOnSubmit(client);
+            db.Clients.InsertOnSubmit(updatedClient);
+            db.SubmitChanges();
         }
     }
 }
