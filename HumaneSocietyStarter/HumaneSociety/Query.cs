@@ -33,14 +33,21 @@ namespace HumaneSociety
             }
         }
         public static List<AnimalShotJunction> GetShots(Animal animal)
-
         {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             List<AnimalShotJunction> shots = new List<AnimalShotJunction>();
             return shots; 
         }
         public static void UpdateShot(String shot, Animal animal)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var animals = db.AnimalShotJunctions.Where(s => s.Animal_ID == animal.ID);
+            foreach (var a in animals)
+            {
+                Console.WriteLine(animal.name + " recieved " + shot + " shot.");
+                a.dateRecieved = DateTime.Today;
+            }
+            Console.ReadLine();
         }
         public static void EnterUpdate(Animal animal, Dictionary<int, string> updates)
         {
