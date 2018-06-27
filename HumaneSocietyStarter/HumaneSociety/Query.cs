@@ -153,8 +153,13 @@ namespace HumaneSociety
         }
         public static List<ClientAnimalJunction> GetUserAdoptionStatus(Client client)
         {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             List<ClientAnimalJunction> adoptionStatus = new List<ClientAnimalJunction>();
-            
+            var pendingAdoptions = db.ClientAnimalJunctions.Where(a => a.approvalStatus.ToLower().Equals("pending adoption"));
+            foreach(var animal in pendingAdoptions)
+            {
+                adoptionStatus.Add(animal);
+            }
             return adoptionStatus;
         }
         public static Animal GetAnimalByID(int iD)
