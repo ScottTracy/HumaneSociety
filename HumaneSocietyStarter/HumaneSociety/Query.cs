@@ -63,6 +63,12 @@ namespace HumaneSociety
         public static Employee RetrieveEmployeeUser(string email, int employeeNumber)
         {
             Employee employee = new Employee();
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var employees = db.Employees.Where(e => e.email.Equals(email) && e.employeeNumber.Equals(employeeNumber));
+            foreach (var e in employees)
+            {
+                employee = e;
+            }
             return employee;
         }
         public static void AddUsernameAndPassword(Employee employee)
@@ -71,6 +77,12 @@ namespace HumaneSociety
         }
         public static bool CheckEmployeeUserNameExist(string username)
         {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var employees = db.Clients.Where(c => c.userName.Equals(username));
+            if (employees.Count() > 0)
+            {
+                return true;
+            }
             return false;
         }
         public static Client GetClient(string userName, string password)
