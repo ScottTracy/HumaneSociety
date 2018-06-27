@@ -106,7 +106,13 @@ namespace HumaneSociety
         }
         public static Employee EmployeeLogin(string userName, string password)
         {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             Employee employee = new Employee();
+            var employees = db.Employees.Where(e => e.userName.Equals(userName) && e.pass.Equals(password));
+            foreach (var emp in employees)
+            {
+                employee = emp;
+            }
             return employee;
         }
         public static Employee RetrieveEmployeeUser(string email, int employeeNumber)
@@ -148,6 +154,7 @@ namespace HumaneSociety
         public static List<ClientAnimalJunction> GetUserAdoptionStatus(Client client)
         {
             List<ClientAnimalJunction> adoptionStatus = new List<ClientAnimalJunction>();
+            
             return adoptionStatus;
         }
         public static Animal GetAnimalByID(int iD)
@@ -216,13 +223,6 @@ namespace HumaneSociety
             if (client.kids != null) { oldClient.First().kids = client.kids; }
             if(client.income !=null){oldClient.First().income = client.income; }
             db.SubmitChanges();
-
-           
-            //var OldClient = db.Clients.Where(c => c.ID.Equals(client.ID).Select(c=>c.pass);
-            
-            
-
-            
         }
         public static void UpdateUsername(Client client)
         {
