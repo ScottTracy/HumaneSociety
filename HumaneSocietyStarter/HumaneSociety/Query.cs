@@ -20,11 +20,20 @@ namespace HumaneSociety
             var _pendingAdoptions = db.ClientAnimalJunctions.Where(a => a.approvalStatus.ToLower() == "pending adoption").ToList();
             return _pendingAdoptions;
         }
-        public static void UpdateAdoption(bool genericBoolean, ClientAnimalJunction clientAnimalJunction)
+        public static void UpdateAdoption(bool boolean, ClientAnimalJunction clientAnimalJunction)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            if (boolean)
+            {
+                var _animal = db.ClientAnimalJunctions.Where(s => s.animal == clientAnimalJunction.animal);
+                foreach(var a in _animal)
+                {
+                    a.approvalStatus = "Approved";
+                }
+            }
         }
         public static List<AnimalShotJunction> GetShots(Animal animal)
+
         {
             List<AnimalShotJunction> shots = new List<AnimalShotJunction>();
             return shots; 
