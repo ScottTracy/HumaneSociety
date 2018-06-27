@@ -90,7 +90,22 @@ namespace HumaneSociety
         }
         public static void Adopt(Animal animal, Client client)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var status = db.Animals.Where(a => a.adoptionStatus.Equals("not adopted"));
+            foreach (var adoption in status)
+            {
+                adoption.adoptionStatus = "pending adoption";
+            }
+            var clientAdopting = db.Clients.Where(c => c.firstName.Equals(client.firstName));
+            var animalForAdoption = db.Animals.Where(a => a.name.Equals(animal.name));
+            foreach (var a in animalForAdoption)
+            {
+                a.ID = animal.ID;
+            }
+            foreach (var c in clientAdopting)
+            {
+                c.ID = client.ID;
+            }
         }
         public static List<Client> RetrieveClients()
         {
