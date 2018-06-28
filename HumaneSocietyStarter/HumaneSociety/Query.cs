@@ -59,7 +59,6 @@ namespace HumaneSociety
             var worker = from item in db.Employees
                          where item.ID == employee.ID
                          select item;
-            
             worker.First().firsttName  = employee.firsttName;
             worker.First().lastName  = employee.lastName ;
             worker.First().userName  = employee.userName ;
