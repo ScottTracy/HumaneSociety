@@ -34,19 +34,43 @@ namespace HumaneSociety
         }
         private static void EmployeeCreator(Employee employee)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            db.Employees.InsertOnSubmit(employee);
+            db.SubmitChanges();
         }
         private static void EmployeeReader(Employee employee)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var worker = from item in db.Employees
+                         where item.ID == employee.ID
+                         select item;
+            Console.Clear();
+            Console.WriteLine("ID: " + worker.First().ID);
+            Console.WriteLine("First name: " + worker.First().firsttName );
+            Console.WriteLine("Last name: " + worker.First().lastName );
+            Console.WriteLine("User name: " + worker.First().userName );
+            Console.WriteLine("Employee number: " + worker.First().employeeNumber );
+            Console.WriteLine("Email: " + worker.First().email );
+            Console.ReadLine();   
         }
         private static void EmployeeUpdater(Employee employee)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var worker = from item in db.Employees
+                         where item.ID == employee.ID
+                         select item;
+            
+            worker.First().firsttName  = employee.firsttName;
+            worker.First().lastName  = employee.lastName ;
+            worker.First().userName  = employee.userName ;
+            worker.First().email  = employee.email ;
+            db.SubmitChanges();
         }
         private static void EmployeeDeleter(Employee employee)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            db.Employees.DeleteOnSubmit(employee);
+            db.SubmitChanges();
         }
         public static List<ClientAnimalJunction> GetPendingAdoptions()
         {
@@ -265,10 +289,10 @@ namespace HumaneSociety
             var oldClient = from item in db.Clients
                             where item.ID == client.ID
                             select item;
-            if (client.pass != null) { oldClient.First().pass = client.pass; }
-            if (client.homeSize != null) { oldClient.First().homeSize = client.homeSize; }
-            if (client.kids != null) { oldClient.First().kids = client.kids; }
-            if(client.income !=null) { oldClient.First().income = client.income; }
+            oldClient.First().pass = client.pass; 
+            oldClient.First().homeSize = client.homeSize; 
+            oldClient.First().kids = client.kids; 
+            oldClient.First().income = client.income; 
             db.SubmitChanges();
         }
         public static void UpdateUsername(Client client)
