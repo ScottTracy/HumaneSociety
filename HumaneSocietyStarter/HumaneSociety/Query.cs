@@ -139,7 +139,7 @@ namespace HumaneSociety
         public static bool CheckEmployeeUserNameExist(string username)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
-            var employees = db.Clients.Where(c => c.userName.Equals(username));
+            var employees = db.Employees.Where(c => c.userName.Equals(username));
             if (employees.Count() > 0)
             {
                 return true;
@@ -232,7 +232,7 @@ namespace HumaneSociety
             if (client.pass != null) { oldClient.First().pass = client.pass; }
             if (client.homeSize != null) { oldClient.First().homeSize = client.homeSize; }
             if (client.kids != null) { oldClient.First().kids = client.kids; }
-            if(client.income !=null){oldClient.First().income = client.income; }
+            if(client.income !=null) { oldClient.First().income = client.income; }
             db.SubmitChanges();
         }
         public static void UpdateUsername(Client client)
