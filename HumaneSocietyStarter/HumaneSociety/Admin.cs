@@ -10,8 +10,7 @@ namespace HumaneSociety
     class Admin : User
 
     {
-        public delegate void CRUDFunction();
-        CRUDFunction Read = new CRUDFunction(ReadEmployee)
+        
         public override void LogIn()
         {
             UserInterface.DisplayUserOptions("What is your password?");
