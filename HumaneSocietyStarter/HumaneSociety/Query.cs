@@ -9,10 +9,11 @@ namespace HumaneSociety
     public static class Query
 
     {
-        public delegate void  CrudFunction();
+        public delegate void  CrudFunction(Employee employee);
         public static void RunEmployeeQueries(Employee employee, string crudResponse)
         {
             CrudFunction EmployeeRef = setDelegate(crudResponse);
+            EmployeeRef(employee);
         }
         private static CrudFunction setDelegate(string crudResponse)
         {
@@ -30,19 +31,19 @@ namespace HumaneSociety
                     return new CrudFunction(EmployeeReader);
             }
         }
-        private static void EmployeeCreator()
+        private static void EmployeeCreator(Employee employee)
         {
 
         }
-        private static void EmployeeReader()
+        private static void EmployeeReader(Employee employee)
         {
 
         }
-        private static void EmployeeUpdater()
+        private static void EmployeeUpdater(Employee employee)
         {
 
         }
-        private static void EmployeeDeleter()
+        private static void EmployeeDeleter(Employee employee)
         {
 
         }
