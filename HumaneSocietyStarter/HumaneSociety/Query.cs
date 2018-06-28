@@ -9,7 +9,41 @@ namespace HumaneSociety
     public static class Query
 
     {
-        public static void RunEmployeeQueries(Employee employee, string str)
+        public delegate void  CrudFunction(Employee employee);
+        public static void RunEmployeeQueries(Employee employee, string crudResponse)
+        {
+            CrudFunction EmployeeRef = setDelegate(crudResponse);
+            EmployeeRef(employee);
+        }
+        private static CrudFunction setDelegate(string crudResponse)
+        {
+            switch (crudResponse)
+            {
+                case "create":
+                    return new CrudFunction(EmployeeCreator);
+                case "read":
+                    return new CrudFunction(EmployeeReader);
+                case "update":
+                    return new CrudFunction(EmployeeUpdater);
+                case "delete":
+                    return new CrudFunction(EmployeeDeleter);
+                default:
+                    return new CrudFunction(EmployeeReader);
+            }
+        }
+        private static void EmployeeCreator(Employee employee)
+        {
+
+        }
+        private static void EmployeeReader(Employee employee)
+        {
+
+        }
+        private static void EmployeeUpdater(Employee employee)
+        {
+
+        }
+        private static void EmployeeDeleter(Employee employee)
         {
 
         }
