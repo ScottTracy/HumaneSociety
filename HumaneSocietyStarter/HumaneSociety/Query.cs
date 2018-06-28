@@ -166,17 +166,19 @@ namespace HumaneSociety
             {
                 locationKey = lK.location;
             }
-            GetRoom(building, room);
+            GetRoom(building, room, locationKey);
             return locationKey;
         }
-        public static void GetRoom(string building, string room)
+        public static void GetRoom(string building, string room, int? locationKey)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             Room _room = new Room();
-            _room.name = room;
-            _room.building = building;
-            db.Rooms.InsertOnSubmit(_room);
-            db.SubmitChanges();
+            var roomKey = db.Rooms.Where(r => r.ID.Equals(locationKey));
+            foreach(var r in roomKey)
+            {
+                r.name = room;
+                r.building = building;
+            }
         }
         public static Employee EmployeeLogin(string userName, string password)
         {
