@@ -9,11 +9,11 @@
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
       <Items>
-        <FileNode Name="MDXQuery1.mdx">
+        <FileNode Name="MDXQuery1.csv">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>MDXQuery1.mdx</FullPath>
+          <FullPath>MDXQuery1.csv</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

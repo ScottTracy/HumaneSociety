@@ -10,6 +10,7 @@ namespace HumaneSociety
 
     {
         public delegate void  CrudFunction(Employee employee);
+
         public static void RunEmployeeQueries(Employee employee, string crudResponse)
         {
             CrudFunction EmployeeRef = setDelegate(crudResponse);
@@ -109,7 +110,8 @@ namespace HumaneSociety
         }
         public static void EnterUpdate(Animal animal, Dictionary<int, string> updates)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Console.WriteLine("Updated " + animal.name + "'s information.");
         }
         public static void RemoveAnimal(Animal animal)
         {
@@ -155,7 +157,7 @@ namespace HumaneSociety
             Console.WriteLine("What is the animal's location?");
             string _location = Console.ReadLine();
             var location = db.Animals.Where(l => l.location.Equals(_location));
-            int? locationKey = 0;
+            int? locationKey = null;
             foreach (var lK in location)
             {
                 locationKey = lK.location;
