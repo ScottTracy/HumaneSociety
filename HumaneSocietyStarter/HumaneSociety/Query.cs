@@ -37,11 +37,30 @@ namespace HumaneSociety
         }
         private static void EmployeeReader(Employee employee)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var worker = from item in db.Employees
+                         where item.ID == employee.ID
+                         select item;
+            Console.Clear();
+            Console.WriteLine("ID: " + worker.First().ID);
+            Console.WriteLine("First name: " + worker.First().firsttName );
+            Console.WriteLine("Last name: " + worker.First().lastName );
+            Console.WriteLine("User name: " + worker.First().userName );
+            Console.WriteLine("Employee number: " + worker.First().employeeNumber );
+            Console.WriteLine("Email: " + worker.First().email );
+            Console.ReadLine();   
         }
         private static void EmployeeUpdater(Employee employee)
         {
-
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            var worker = from item in db.Employees
+                         where item.ID == employee.ID
+                         select item;
+            worker.First().firsttName  = employee.firsttName;
+            worker.First().lastName  = employee.lastName ;
+            worker.First().userName  = employee.userName ;
+            worker.First().email  = employee.email ;
+            db.SubmitChanges();
         }
         private static void EmployeeDeleter(Employee employee)
         {
