@@ -16,9 +16,13 @@ namespace HumaneSociety
             //    new Animal {ID = 1002, name = "Loki", breed = null, weight = 18, age = 3, diet = null, location = null, demeanor = "cuddly", kidFriendly = true, petFriendly = true, gender = null, adoptionStatus = "adopted", Employee_ID = null },
             //    new Animal {ID = 1003, name = "Rowdy", breed = null, weight = 20, age = 8, diet = null, location = null, demeanor = "deceased", kidFriendly = true, petFriendly = true, gender = null, adoptionStatus = "not adopted", Employee_ID = null },
             //};
+<<<<<<< HEAD
             //PointOfEntry.Run();
             Import import = new Import();
             import.ImportCSV();
+=======
+            PointOfEntry.Run();
+>>>>>>> e1e7a687906bc8cf5783b0f7790a88f54b0230c1
         }
     }
 }

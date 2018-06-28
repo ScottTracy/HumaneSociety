@@ -1,0 +1,22 @@
+CREATE TABLE Animals (
+	ID int,
+	Name varchar(50),
+	Breed int,
+	Weight int, 
+	Age int,	
+	Diet int, 
+	Location int,
+	Demeanor varchar(50),
+	KidFriendly bit,
+	PetFriendly bit,
+	Gender bit,
+	AdoptionStatus varchar(50),
+	EmployeeID int
+);
+
+INSERT INTO Animals (ID, Name, Breed, Weight, Age, Diet, Location, Demeanor, KidFriendly, PetFriendly, Gender, AdoptionStatus, EmployeeID )
+VALUES (1001, "Murdock", null, 15, 2, null, null, "skittish", 1, 0, null, "adopted", null );
+INSERT INTO Animals (ID, Name, Breed, Weight, Age, Diet, Location, Demeanor, KidFriendly, PetFriendly, Gender, AdoptionStatus, EmployeeID )
+VALUES (1002, "Loki", null, 18, 3, null, null, "cuddly", 1, 1, null, "adopted", null );
+INSERT INTO Animals (ID, Name, Breed, Weight, Age, Diet, Location, Demeanor, KidFriendly, PetFriendly, Gender, AdoptionStatus, EmployeeID )
+VALUES (1003, "Rowdy", nll, 20, 8, null, null, "deceased", 1, 1, null, "not adopted", null );

@@ -17,7 +17,6 @@ namespace HumaneSociety
         }
         private static void RunUserInput(string input)
         {
-
             Customer customer;
             UserEmployee employee;
             Admin admin;
