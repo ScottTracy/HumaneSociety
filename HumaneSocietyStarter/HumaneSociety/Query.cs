@@ -68,8 +68,8 @@ namespace HumaneSociety
         public static List<AnimalShotJunction> GetShots(Animal animal)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
-            List<AnimalShotJunction> shots = new List<AnimalShotJunction>();
-            return shots; 
+            var animals = db.AnimalShotJunctions.Where(a => a.Animal_ID.Equals(animal.ID)).ToList();
+            return animals; 
         }
         public static void UpdateShot(String shot, Animal animal)
         {
@@ -192,8 +192,13 @@ namespace HumaneSociety
         }
         public static List<ClientAnimalJunction> GetUserAdoptionStatus(Client client)
         {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             List<ClientAnimalJunction> adoptionStatus = new List<ClientAnimalJunction>();
-            
+            var pendingAdoptions = db.ClientAnimalJunctions.Where(a => a.approvalStatus.ToLower().Equals("pending adoption"));
+            foreach(var animal in pendingAdoptions)
+            {
+                adoptionStatus.Add(animal);
+            }
             return adoptionStatus;
         }
         public static Animal GetAnimalByID(int iD)
