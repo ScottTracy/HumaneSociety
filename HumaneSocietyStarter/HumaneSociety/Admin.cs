@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 namespace HumaneSociety
 {
     class Admin : User
+
     {
+        
         public override void LogIn()
         {
             UserInterface.DisplayUserOptions("What is your password?");
