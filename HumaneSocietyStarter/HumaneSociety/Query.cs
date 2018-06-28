@@ -155,6 +155,10 @@ namespace HumaneSociety
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             Console.WriteLine("What is the animal's location?");
+            Console.WriteLine("What building is the animal in?");
+            string building = Console.ReadLine();
+            Console.WriteLine("What is the name of the room the animal is in?");
+            string room = Console.ReadLine();
             string _location = Console.ReadLine();
             var location = db.Animals.Where(l => l.location.Equals(_location));
             int? locationKey = null;
@@ -162,7 +166,17 @@ namespace HumaneSociety
             {
                 locationKey = lK.location;
             }
+            GetRoom(building, room);
             return locationKey;
+        }
+        public static void GetRoom(string building, string room)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            Room _room = new Room();
+            _room.name = room;
+            _room.building = building;
+            db.Rooms.InsertOnSubmit(_room);
+            db.SubmitChanges();
         }
         public static Employee EmployeeLogin(string userName, string password)
         {
