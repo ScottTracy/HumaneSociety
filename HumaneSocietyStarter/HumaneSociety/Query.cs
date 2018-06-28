@@ -243,6 +243,7 @@ namespace HumaneSociety
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             ClientAnimalJunction clientanimaljunction = new ClientAnimalJunction();
+            Bank bank = new Bank();
             var status = db.Animals.Where(a => a.adoptionStatus.Equals("not adopted"));
             foreach (var adoption in status)
             {
@@ -250,6 +251,7 @@ namespace HumaneSociety
             }
             clientanimaljunction.animal.Equals(animal.ID);
             clientanimaljunction.client.Equals(client.ID);
+            bank.DepositMoney(75);
         }
         public static List<Client> RetrieveClients()
         {
