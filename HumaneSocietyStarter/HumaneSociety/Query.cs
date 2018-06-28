@@ -87,7 +87,7 @@ namespace HumaneSociety
                 var _animal = db.ClientAnimalJunctions.Where(s => s.animal == clientAnimalJunction.animal);
                 foreach(var a in _animal)
                 {
-                    a.approvalStatus = "Approved";
+                    a.approvalStatus = "approved";
                 }
             }
         }
@@ -166,10 +166,10 @@ namespace HumaneSociety
             {
                 locationKey = lK.location;
             }
-            GetRoom(building, room, locationKey);
+            UpdateRoom(building, room, locationKey);
             return locationKey;
         }
-        public static void GetRoom(string building, string room, int? locationKey)
+        public static void UpdateRoom(string building, string room, int? locationKey)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             var roomKey = db.Rooms.Where(r => r.ID.Equals(locationKey));
@@ -259,7 +259,7 @@ namespace HumaneSociety
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
             ClientAnimalJunction clientanimaljunction = new ClientAnimalJunction();
             Bank bank = new Bank();
-            var status = db.Animals.Where(a => a.adoptionStatus.Equals("not adopted"));
+            var status = db.Animals.Where(a => a.adoptionStatus.ToLower().Equals("not adopted"));
             foreach (var adoption in status)
             {
                 adoption.adoptionStatus = "pending adoption";
