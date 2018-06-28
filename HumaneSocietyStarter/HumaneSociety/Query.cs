@@ -172,7 +172,6 @@ namespace HumaneSociety
         public static void GetRoom(string building, string room, int? locationKey)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
-            Room _room = new Room();
             var roomKey = db.Rooms.Where(r => r.ID.Equals(locationKey));
             foreach(var r in roomKey)
             {
