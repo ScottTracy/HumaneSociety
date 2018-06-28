@@ -18,8 +18,8 @@ namespace HumaneSociety
             //};
 
             //PointOfEntry.Run();
-            Import import = new Import();
-            import.ImportCSV();
+            
+            Import.PopulateAnimals(Import.ImportCSV());
 
             PointOfEntry.Run();
 
